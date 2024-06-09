@@ -31,9 +31,14 @@ The graphical solution of the VBG workflow is shown here:
 
 ## Using VBG
 
-VBG was tested in Mac OSX, WSL2 on WIN11, Ubuntu 18.0, 20.04 and CentOS. 
+VBG was tested in Mac OSX, WSL2 on WIN11, Ubuntu 18.0, 20.04, Mint 20, 21, and CentOS. 
 
-**Updated Dependencies:**
+VBG can be installed locally after installing the dependencies listed below
+
+Another option, is to download the Docker image from docker hub.
+See below for further details.
+
+**Updated Dependencies for installing VBG locally:**
 
 a) ANTs v2.3.1 and ANTsX scripts
 
@@ -117,4 +122,19 @@ Installation instructions:
 
     - Clone this repository, add the installation directory to your path in Bash shell.
     - Ensure that all dependencies are met, FastSurfer is only required if you will use it for parcellation (i.e. with -P 2 or -P 3)
+
+**Using VBG via Docker:**
+
+To run VBG via docker please run the following command to pull the docker image
+
+docker pull radwankul/kul_vbg_mint:latest
+
+To run the image after pulling is completed use the following command and see the user guide above for furthe usage options.
+
+1- To run with CUDA GPU support, useful for HD-BET, and FastSurfer on GPU
+docker run --gpus all -it --rm -v $(pwd)/app:/data kul_vbg_mint KUL_VBG.sh -S PAT -b -l /app/lesion.nii.gz -z T1 -B 1 -P 3 -n 50 -v
+
+1- To run without CUDA GPU support
+docker run -it --rm -v $(pwd)/app:/data kul_vbg_mint KUL_VBG.sh -S PAT -b -l /app/lesion.nii.gz -z T1 -B 1 -P 3 -n 50 -v
+
 
