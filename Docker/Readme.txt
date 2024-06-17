@@ -38,4 +38,4 @@ docker run --gpus all -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/us
 ** See KUL_VBG.sh -h for details on how to use KUL_VBG.sh, also KUL_VBG_cook_template.sh -h
 ** KUL_synth_pats_4VBG.sh has to be run from within the container
 ** This can be done by logging into the container from terminal:
-docker run -it --rm -v $(pwd)/data:/app     kul_vbg_mint /bin/bash
+docker run -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/app kul_vbg_mint /bin/bash

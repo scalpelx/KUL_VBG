@@ -132,9 +132,9 @@ docker pull radwankul/kul_vbg_mint:latest
 To run the image after pulling is completed use the following command and see the user guide above for furthe usage options.
 
 1- To run with CUDA GPU support, useful for HD-BET, and FastSurfer on GPU
-docker run --gpus all -it --rm -v $(pwd)/app:/data kul_vbg_mint KUL_VBG.sh -S PAT -b -l /app/lesion.nii.gz -z T1 -B 1 -P 3 -n 50 -v
+docker run --gpus all -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/app:/data kul_vbg_mint KUL_VBG.sh -S PAT -b -l /app/lesion.nii.gz -z T1 -B 1 -P 3 -n 50 -v
 
 1- To run without CUDA GPU support
-docker run -it --rm -v $(pwd)/app:/data kul_vbg_mint KUL_VBG.sh -S PAT -b -l /app/lesion.nii.gz -z T1 -B 1 -P 3 -n 50 -v
+docker run -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/app:/data kul_vbg_mint KUL_VBG.sh -S PAT -b -l /app/lesion.nii.gz -z T1 -B 1 -P 3 -n 50 -v
 
 
