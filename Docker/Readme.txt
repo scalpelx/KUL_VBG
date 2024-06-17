@@ -25,17 +25,17 @@ To build the docker image follow these steps in a linux terminal, assuming BASH:
 3- cd /KUL_VBG_docker_folder
 4- sudo docker build -f KUL_VBG_Dockerfile -t kul_vbg_mint .
 5- wait till it's finished
-6- Run the resulting built image using:
+6- Run the resulting built image using (replace /path/to/freesurfer/license.txt with the path to your freesurfer license):
 
 * If no NVIDIA GPU available
-docker run -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/data kul_vbg_mint
+docker run -it --rm -v /path/to/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/data kul_vbg_mint
 
 * If NVIDIA GPU available
-docker run --gpus all -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/data kul_vbg_mint
+docker run --gpus all -it --rm -v /path/to/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/data kul_vbg_mint
 
 ** Replace $(pwd)/data with the path you have your data in.
 ** In principle, the docker image can be used to run any command of the installed software
 ** See KUL_VBG.sh -h for details on how to use KUL_VBG.sh, also KUL_VBG_cook_template.sh -h
 ** KUL_synth_pats_4VBG.sh has to be run from within the container
 ** This can be done by logging into the container from terminal:
-docker run -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/app kul_vbg_mint /bin/bash
+docker run -it --rm -v /path/to/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/app kul_vbg_mint /bin/bash
