@@ -28,10 +28,10 @@ To build the docker image follow these steps in a linux terminal, assuming BASH:
 6- Run the resulting built image using:
 
 * If no NVIDIA GPU available
-docker run -it --rm -v $(pwd)/data:/data kul_vbg_mint
+docker run -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/data kul_vbg_mint
 
 * If NVIDIA GPU available
-docker run --gpus all -it --rm -v $(pwd)/data:/data kul_vbg_mint
+docker run --gpus all -it --rm -v /usr/local/KUL_apps/freesurfer/license.txt:/usr/local/freesurfer/license.txt -v $(pwd)/data:/data kul_vbg_mint
 
 ** Replace $(pwd)/data with the path you have your data in.
 ** In principle, the docker image can be used to run any command of the installed software

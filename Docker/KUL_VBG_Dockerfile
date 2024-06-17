@@ -118,7 +118,7 @@ RUN wget -qO- https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/frees
     echo "source \$FREESURFER_HOME/SetUpFreeSurfer.sh" >> /etc/profile.d/freesurfer.sh
 
 # Copy FreeSurfer license
-COPY freesurfer_license.txt /usr/local/freesurfer/license.txt
+# COPY freesurfer_license.txt /usr/local/freesurfer/license.txt
 
 # Set up ANTs
 COPY ANTs /opt/ANTs
@@ -177,7 +177,7 @@ RUN echo ". /usr/local/fsl/etc/fslconf/fsl.sh" >> /etc/profile.d/fsl.sh && \
 RUN /bin/bash -c "source /opt/conda/etc/profile.d/conda.sh && conda activate fastsurfer && export PYTHONPATH=\"\${PYTHONPATH}:/opt/FastSurfer\" && python3 /opt/FastSurfer/FastSurferCNN/download_checkpoints.py --all"
 
 # Copy FreeSurfer license
-COPY freesurfer_license.txt /opt/FastSurfer/license.txt
+# COPY freesurfer_license.txt /opt/FastSurfer/license.txt
 
 # Install HD-BET
 RUN git clone https://github.com/MIC-DKFZ/HD-BET.git /opt/HD-BET && \
